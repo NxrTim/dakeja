@@ -36,11 +36,14 @@ if($settings_live['value'] == "false"){
             var distance = countDownDate - now;
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            if(seconds < 10)
-                seconds = '0' + seconds;
+            if(seconds < 10) {
+                var secondss = '0' + seconds;
+            }else{
+                var secondss = seconds;
+            }
 
             // Display the result in the element with id="demo"
-            document.getElementById("countdown").innerHTML = minutes + ":" + seconds;
+            document.getElementById("countdown").innerHTML = minutes + ":" + secondss;
 
             // If the count down is finished, write some text
             if (distance < 0) {
