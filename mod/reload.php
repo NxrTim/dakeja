@@ -76,7 +76,7 @@ if($settings_live['value'] != "false"){
         $winner_info = $pdo1->query($sql)->fetch();
 
         $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`) VALUES (?,?,?,?,?)");
-        $statement->execute(array($subs[$randomnumber], $settings_product_id['value'], $randomnumber, $winner_info['number_or_name'], time()));
+        $statement->execute(array(NULL, $settings_product_id['value'], NULL, $winner_info['number_or_name'], time()));
 
         $sql = "DELETE FROM `subscribers`";
         $winnesssr_info = $pdo1->query($sql)->fetch();
@@ -85,6 +85,7 @@ if($settings_live['value'] != "false"){
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
     $last_winner = $pdo1->query($sql)->fetch();
     ?>
-    <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner['number_or_name']; ?></span></b>
+    <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner['number_or_name']; ?></span></b><br>
+    <a href="https://<?= $url; ?>/mod/new_round/"></a>
     <?php
 }
