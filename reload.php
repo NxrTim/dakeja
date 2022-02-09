@@ -93,7 +93,7 @@ if($settings_live['value'] == "false"){
     <?php
     if($sub == "true"){
         ?>
-        <p>Du nimmstr an der Versteigerung teil!</p>
+        <p>Du nimmst an der Versteigerung teil!</p>
         <?php
     }else{
     ?>
