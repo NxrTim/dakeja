@@ -1,5 +1,6 @@
 <title>Dakeja &bull; Versteigerung</title>
 <?php
+session_start();
 $url = "dakeja.fleischer-home.de";
 if(isset($_POST['dakeja_number'])){
     $_SESSION['dakeja_number'] = htmlspecialchars($_POST['dakeja_number']);
