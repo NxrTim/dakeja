@@ -30,7 +30,7 @@ if($settings_live['value'] == "false"){
 
     ?>
     <script>
-        var countDownDate = new Date("Feb 9, 2022 16:59:25").getTime();
+        var countDownDate = new Date("<?php echo $settings_start['value']; ?>").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
