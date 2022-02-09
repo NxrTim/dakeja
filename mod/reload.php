@@ -86,6 +86,6 @@ if($settings_live['value'] != "false"){
     $last_winner = $pdo1->query($sql)->fetch();
     ?>
     <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner['number_or_name']; ?></span></b><br>
-    <a href="https://<?= $url; ?>/mod/new_round/"></a>
+    <a href="https://<?= $url; ?>/mod/new_round/">Neue Versteigerung starten</a>
     <?php
 }
