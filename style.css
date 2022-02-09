@@ -28,6 +28,15 @@ body{
 }
 
 p{
-    font-size: 30px
-;
+    font-size: 30px;
+}
+#time{
+    font-size: 15px;
+    transform:translate(40px,-90px);
+    text-align:right;
+}
+#topic-2{
+    font-size: 15px;
+    transform:translate(-155px, -25px);
+    text-align:left;
 }

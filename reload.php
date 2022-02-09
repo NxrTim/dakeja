@@ -34,7 +34,7 @@ if($sub_is == 0){
 <?php
 if($settings_live['value'] == "false"){
     ?>
-<p id="topic-3">Aktuell läuft keine Artiekl Versteigerung.</p>
+<p id="topic-3">Aktuell läuft keine Artikel Versteigerung.</p>
 
 <?php
 }else{
