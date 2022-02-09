@@ -78,6 +78,6 @@ if($settings_live['value'] != "false"){
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
     $last_winner = $pdo1->query($sql)->fetch();
     ?>
-    <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner; ?></span></b>
+    <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner['number_or_name']; ?></span></b>
     <?php
 }
