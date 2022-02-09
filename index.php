@@ -33,7 +33,20 @@ if(!isset($_SESSION['dakeja_number'])){
     </head>
     <body>
 
-    <div id="target"></div>
+
+    <div id="target">
+        <script>
+            var x = setInterval(function() {
+                if(document.getElementById("please_wait").innerHTML == "Bitte warten der Inhalt wird geladen.")
+                    document.getElementById("please_wait").innerHTML = "Bitte warten der Inhalt wird geladen..";
+                if(document.getElementById("please_wait").innerHTML == "Bitte warten der Inhalt wird geladen..")
+                    document.getElementById("please_wait").innerHTML = "Bitte warten der Inhalt wird geladen...";
+                if(document.getElementById("please_wait").innerHTML == "Bitte warten der Inhalt wird geladen...")
+                    document.getElementById("please_wait").innerHTML = "Bitte warten der Inhalt wird geladen.";
+            }, 1000);
+        </script>
+        <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
+    </div>
     </body>
 <?php
 }
