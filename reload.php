@@ -27,10 +27,10 @@ if($settings_live['value'] == "false"){
 }else{
     if($settings_start['value'] > time()){
         $timo = $settings_start['value'] - time();
-
+        $realtime = date('M j, Y H:i:s', $settings_start['value'])
     ?>
     <script>
-        var countDownDate = new Date("<?php echo $settings_start['value']; ?>").getTime();
+        var countDownDate = new Date("<?php echo $realtime; ?>").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
