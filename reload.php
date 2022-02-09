@@ -29,7 +29,7 @@ if(isset($_GET['subscribe'])){
         $statement->execute(array($dakeja_num, $settings_product_id['value'], time(), $_SERVER['REMOTE_ADDR']));
     }?>
 
-    <meta http-equiv="refresh" content="1"; URL="http://<?= $url; ?>/">
+    <meta http-equiv="refresh" content="1"; URL="https://<?= $url; ?>/">
         <?php
 
 }
