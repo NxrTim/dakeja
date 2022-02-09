@@ -1,6 +1,6 @@
 <title>Dakeja &bull; Versteigerung</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
 <?php
 session_start();
 $url = "dakeja.fleischer-home.de";
