@@ -25,9 +25,10 @@ if($settings_live['value'] == "false"){
 
 <?php
 }else{
+    if($settings_start['value'] > time()){
     ?>
     <script>
-        var countDownDate = new Date("Feb 9, 2022 16:29:25").getTime();
+        var countDownDate = new Date("Feb 9, 2022 16:59:25").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
@@ -44,6 +45,9 @@ if($settings_live['value'] == "false"){
             }
         }, 1000);
     </script>
+        <?php
+    }
+        ?>
     <b><p id="countdown">00:59</p></b>
     <p id="topic-5">Verteigerung aktiv!</p>
     <p>Nehme jetzt teil und ersteige den Artikel!</p>
