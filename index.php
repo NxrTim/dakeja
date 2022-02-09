@@ -19,8 +19,6 @@ if(!isset($_SESSION['dakeja_number'])){
 }else{
     ?>
     <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
-    <html>
-
     <head>
         <script type="text/javascript">
             var updateDiv = function ()
@@ -35,7 +33,5 @@ if(!isset($_SESSION['dakeja_number'])){
 
     <div id="target"></div>
     </body>
-    <center>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 }
