@@ -45,10 +45,15 @@ if($settings_live['value'] == "false"){
             }
         }, 1000);
     </script>
+        <b><p id="countdown"><?php echo date('i:s', $settings_start['value']) ?></p></b>
         <?php
+    }else{
+        ?>
+        <b><p id="countdown">Zeit abgelaufen!</p></b>
+
+            <?php
     }
         ?>
-    <b><p id="countdown">00:59</p></b>
     <p id="topic-5">Verteigerung aktiv!</p>
     <p>Nehme jetzt teil und ersteige den Artikel!</p>
 <?php
