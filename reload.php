@@ -24,7 +24,8 @@ if($settings_live['value'] == "false"){
 <?php
 }else{
     ?>
-
+<p><b>00:59</b></p>
     <p id="topic-5">Verteigerung aktiv!</p>
+    <p>Nehme jetzt teil und ersteige den Artikel!</p>
 <?php
 }
