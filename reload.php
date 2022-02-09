@@ -27,7 +27,7 @@ if($settings_live['value'] == "false"){
 }else{
     if($settings_start['value'] > time()){
         $timo = $settings_start['value'] - time();
-        $realtime = date('M j, Y H:i:s', $settings_start['value'])
+        $realtime = date('M j, Y H:i:s', $settings_start['value']);
     ?>
     <script>
         var countDownDate = new Date("<?php echo $realtime; ?>").getTime();
@@ -60,6 +60,8 @@ if($settings_live['value'] == "false"){
         <b><p id="countdown"><?php echo date('i:s', $timo) ?></p></b>
         <?php
     }else{
+        $sql = "UPDATE `settings` SET `value` = 'false' WHERE `settings`.`id` = 1;";
+        $settings_start = $pdo1->query($sql)->fetch();
         ?>
         <b><p id="countdown">Zeit abgelaufen!</p></b>
 
