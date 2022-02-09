@@ -26,6 +26,9 @@ if($settings_live['value'] != "false"){
     if($settings_start['value'] > time()){
         $timo = $settings_start['value'] - time();
         $realtime = date('M j, Y H:i:s', $settings_start['value']);
+
+        $sql = "SELECT * FROM `subscribers`";
+        $allsubers = $pdo1->query($sql)->rowCount();
         ?>
         <script>
             var countDownDate = new Date("<?php echo $realtime; ?>").getTime();
@@ -51,7 +54,8 @@ if($settings_live['value'] != "false"){
                 }
             }, 1000);
         </script>
-        <span id="vor_countdown">Verbleibende Zeit: </span><b><span id="countdown"><?php echo date('i:s', $timo) ?></span></b>
+        <span id="vor_countdown">Verbleibende Zeit: </span><b><span id="countdown"><?php echo date('i:s', $timo); ?></span></b><br>
+        <span id="vor_subs">Teilnehmer: </span><b><span id="subs"><?= $allsubers; ?></span></b>
         <?php
     }
 }else{
