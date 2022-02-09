@@ -26,7 +26,7 @@ if(isset($_GET['subscribe'])){
     $sub_rows = $pdo1->query($sql)->rowCount();
     if($sub_rows == 0){
         $statement = $pdo1->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
-        $statement->execute(array($dakeja_num, $settings_product_id, time(), $_SERVER['REMOTE_ADDR']));
+        $statement->execute(array($dakeja_num, $settings_product_id['value'], time(), $_SERVER['REMOTE_ADDR']));
     }
     header('location: https://'.$url.'/');
     exit();
