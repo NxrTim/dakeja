@@ -43,7 +43,7 @@ if(!isset($_SESSION['dakeja_number'])){
                     document.getElementById("please_wait").innerHTML = "Bitte warten der Inhalt wird geladen...";
                 if(document.getElementById("please_wait").innerHTML == "Bitte warten der Inhalt wird geladen...")
                     document.getElementById("please_wait").innerHTML = "Bitte warten der Inhalt wird geladen.";
-            }, 1000);
+            }, 100);
         </script>
         <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
     </div>
