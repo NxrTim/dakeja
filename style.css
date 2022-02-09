@@ -1,7 +1,6 @@
 body{
     background-image: url("Dakeja-Background.png");
     background-repeat: no-repeat;
-    background-size: cover;
     color: #ffffff;
 }
 
@@ -13,13 +12,14 @@ body{
     width: 600px;
     max-height: 500px;
     height: auto;
-    padding: 15px 0;
+    padding: 25px 0;
     border-radius: 5px;
     position: relative;
     z-index: 1;
     overflow: hidden;
     backdrop-filter:blur(7px);
     min-width:600px;
+    text-align:center;
 }
 #wrapper{
     justify-content: center;
@@ -35,7 +35,7 @@ p{
 }
 #time{
     font-size: 15px;
-    transform:translate(205px,-90px);
+    transform:translate(190px,-90px);
 }
 #topic-2{
     font-size: 15px;
@@ -75,4 +75,16 @@ p{
     100% {
         transform: scale(0.95);
     }
+}
+a{
+    color: #ffffff;
+    text-decoration:none;
+    border: 3px solid #cacaca;
+    padding:5px;
+    border-radius:10px;
+    font-size:20px;
+}
+#topic-5{
+    font-size:20px;
+    transform:translateY(-10px);
 }
