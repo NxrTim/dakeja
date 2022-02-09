@@ -5,7 +5,7 @@
 session_start();
 $url = "dakeja.fleischer-home.de";
 ?>
-<link rel="stylesheet" href="https://<?= $url; ?>/style.css" type="text/css">
+<link rel="stylesheet" href="https://<?= $url; ?>/style.css?<?= time(); ?>" type="text/css">
 <div id="wrapper">
     <div id="main">
     <?php
