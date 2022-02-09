@@ -19,5 +19,6 @@ $sub_rows = $pdo1->query($sql)->rowCount();
 if($sub_rows == 0){
     $statement = $pdo1->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
     $statement->execute(array($_SESSION['dakeja_number'], $settings_product_id['value'], time(), $_SERVER['REMOTE_ADDR']));
-}?>
-<meta http-equiv="refresh" content="1"; URL="https://<?= $url; ?>/">
+}
+header('location: https://'.$url.'/');
+exit();
