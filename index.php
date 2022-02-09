@@ -10,7 +10,7 @@ if(!isset($_SESSION['dakeja_number'])){
 ?>
         <form method="post">
             <p>Deine Dakeja-Nummer oder Tikok-Name:</p>
-            <input type="text" name="dakeja_number" placeholder="15">
+            <input type="text" name="dakeja_number" id="dakeja_number" placeholder="15">
             <input type="submit" value="loslegen">
         </form>
 <?php
