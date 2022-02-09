@@ -37,7 +37,7 @@ if($settings_live['value'] == "false"){
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             if(seconds < 10) {
-                var secondss = '0' + seconds;
+                var secondss = "0" + seconds;
             }else{
                 var secondss = "1" + seconds;
             }
