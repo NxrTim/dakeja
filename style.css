@@ -1,6 +1,7 @@
 body{
     background-image: url("Dakeja-Background.png");
     background-repeat: no-repeat;
+    background-size: cover;
     color: #ffffff;
 }
 
