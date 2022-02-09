@@ -58,6 +58,9 @@ if($settings_live['value'] != "false"){
     $sql = "UPDATE `settings` SET `value` = 'false' WHERE `settings`.`id` = 1;";
     $settings_start = $pdo1->query($sql)->fetch();
 
+    $sql = "SELECT * FROM `subscribers`";
+    $suber = $pdo1->query($sql)->rowCount();
+
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
     $sel_winner = $pdo1->query($sql)->rowCount();
     if($sel_winner == 0){
@@ -66,7 +69,7 @@ if($settings_live['value'] != "false"){
         foreach ($pdo1->query($sql) as $row) {
             $subs[] = $row['id'];
         }
-        $max = $sel_winner -1;
+        $max = $suber -1;
         $randomnumber = rand(0, $max);
 
         $sql = "SELECT * FROM `subscribers` WHERE id = '" . $subs[$randomnumber] . "'";
