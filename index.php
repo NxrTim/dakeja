@@ -6,6 +6,7 @@ session_start();
 $url = "dakeja.fleischer-home.de";
 ?>
 <link rel="stylesheet" href="https://<?= $url; ?>/style.css" type="text/css">
+<div id="main">
 <?php
 if(isset($_POST['dakeja_number'])){
     $_SESSION['dakeja_number'] = htmlspecialchars($_POST['dakeja_number']);
@@ -41,5 +42,6 @@ if(!isset($_SESSION['dakeja_number'])){
         <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
     </div>
     </body>
+</div>
 <?php
 }
