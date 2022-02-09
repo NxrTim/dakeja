@@ -51,7 +51,7 @@ if($settings_live['value'] != "false"){
                 }
             }, 1000);
         </script>
-        <span id="vor_countdown">Verbleibende Zeit: </span><b><p id="countdown"><?php echo date('i:s', $timo) ?></p></b>
+        <span id="vor_countdown">Verbleibende Zeit: </span><b><span id="countdown"><?php echo date('i:s', $timo) ?></span></b>
         <?php
     }else{
         $sql = "UPDATE `settings` SET `value` = 'false' WHERE `settings`.`id` = 1;";
