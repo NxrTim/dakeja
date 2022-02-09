@@ -68,22 +68,27 @@ if($settings_live['value'] != "false"){
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
     $sel_winner = $pdo1->query($sql)->rowCount();
     if($sel_winner == 0){
-        $subs = array();
-        $sql = "SELECT * FROM subscribers WHERE product_id = '" . $settings_product_id['value'] . "'";
-        foreach ($pdo1->query($sql) as $row) {
-            $subs[] = $row['id'];
+        if($suber != 0) {
+            $subs = array();
+            $sql = "SELECT * FROM subscribers WHERE product_id = '" . $settings_product_id['value'] . "'";
+            foreach ($pdo1->query($sql) as $row) {
+                $subs[] = $row['id'];
+            }
+            $max = $suber - 1;
+            $randomnumber = rand(0, $max);
+
+            $sql = "SELECT * FROM `subscribers` WHERE id = '" . $subs[$randomnumber] . "'";
+            $winner_info = $pdo1->query($sql)->fetch();
+
+            $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`) VALUES (?,?,?,?,?)");
+            $statement->execute(array(NULL, $settings_product_id['value'], NULL, $winner_info['number_or_name'], time()));
+
+            $sql = "DELETE FROM `subscribers`";
+            $winnesssr_info = $pdo1->query($sql)->fetch();
+        }else{
+            $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`) VALUES (?,?,?,?,?)");
+            $statement->execute(array(NULL, $settings_product_id['value'], NULL, "Keine Teilnehmer", time()));
         }
-        $max = $suber -1;
-        $randomnumber = rand(0, $max);
-
-        $sql = "SELECT * FROM `subscribers` WHERE id = '" . $subs[$randomnumber] . "'";
-        $winner_info = $pdo1->query($sql)->fetch();
-
-        $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`) VALUES (?,?,?,?,?)");
-        $statement->execute(array(NULL, $settings_product_id['value'], NULL, $winner_info['number_or_name'], time()));
-
-        $sql = "DELETE FROM `subscribers`";
-        $winnesssr_info = $pdo1->query($sql)->fetch();
 
     }
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
