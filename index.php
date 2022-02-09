@@ -1,4 +1,5 @@
 <title>Dakeja &bull; Versteigerung</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 session_start();
 $url = "dakeja.fleischer-home.de";
@@ -10,13 +11,31 @@ if(isset($_POST['dakeja_number'])){
 if(!isset($_SESSION['dakeja_number'])){
 ?>
         <form method="post">
-            <p>Deine Dakeja-Nummer oder Tikok-Name:</p>
+            <p id="topic-1">Deine Dakeja-Nummer oder Tikok-Name:</p>
             <input type="text" name="dakeja_number" id="dakeja_number" placeholder="15" autofocus>
-            <input type="submit" value="loslegen">
+            <input type="submit" id="button-1" value="loslegen">
         </form>
 <?php
 }else{
     ?>
-<p>Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p>
+    <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
+    <html>
+
+    <head>
+        <script type="text/javascript">
+            var updateDiv = function ()
+            {
+                $('#target').load('reload.php');
+            }
+
+            var deinTimer = window.setInterval(updateDiv, 5000);
+        </script>
+    </head>
+    <body>
+
+    <div id="target"></div>
+    </body>
+    <center>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 }
