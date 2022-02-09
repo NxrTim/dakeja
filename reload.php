@@ -6,7 +6,7 @@ $db_host = 'localhost';
 $db_name = 'DaKeJa';
 $db_user = 'dakeja_versteigerung';
 $db_password = '$62Ztx9o';
-$pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password;
+$pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 $con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 
