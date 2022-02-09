@@ -21,19 +21,6 @@ $settings_start = $pdo1->query($sql)->fetch();
 $sql = "SELECT * FROM `settings` WHERE setting='product_id'";
 $settings_product_id = $pdo1->query($sql)->fetch();
 
-if(isset($_GET['subscribe'])){
-    $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
-    $sub_rows = $pdo1->query($sql)->rowCount();
-    if($sub_rows == 0){
-        $statement = $pdo1->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
-        $statement->execute(array($dakeja_num, $settings_product_id['value'], time(), $_SERVER['REMOTE_ADDR']));
-    }?>
-
-    <meta http-equiv="refresh" content="1"; URL="https://<?= $url; ?>/">
-        <?php
-
-}
-
 $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
 $sub_is = $pdo1->query($sql)->rowCount();
 if($sub_is == 0){
@@ -102,7 +89,7 @@ if($settings_live['value'] == "false"){
         <?php
     }else{
     ?>
-    <a href="?subscribe">Artikel ersteigern</a>
+    <a href="/subscribe/">Artikel ersteigern</a>
 <?php
     }
 }

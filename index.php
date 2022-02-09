@@ -9,9 +9,7 @@ if(isset($_POST['dakeja_number'])){
     header('location: https://'.$url.'/');
     exit();
 }
-if(isset($_GET['subscribe'])){
-    $add = "&subscribe";
-}
+
 if(!isset($_SESSION['dakeja_number'])){
 ?>
         <form method="post">
@@ -27,7 +25,7 @@ if(!isset($_SESSION['dakeja_number'])){
         <script type="text/javascript">
             var updateDiv = function ()
             {
-                $('#target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?><?= $add; ?>');
+                $('#target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?>');
             }
 
             var deinTimer = window.setInterval(updateDiv, 5000);
