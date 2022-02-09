@@ -30,6 +30,7 @@ if($sub_is == 0){
 }
 
 ?>
+<div id="main">
 <p id="time">Letzte Aktualisierung: <?php echo date('H:i:s'); ?></p>
 <?php
 if($settings_live['value'] == "false"){
@@ -90,6 +91,7 @@ if($settings_live['value'] == "false"){
     }else{
     ?>
     <a href="/subscribe/">Artikel ersteigern</a>
+    </div>
 <?php
     }
 }
