@@ -6,4 +6,4 @@ date_default_timezone_set('Europe/Berlin');
 <script>
     console.log( 'Loaded Background');
 </script>
-<?= date('H:i:s') ?>
+<?php echo date('H:i:s'); ?>
