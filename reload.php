@@ -41,9 +41,14 @@ if($settings_live['value'] == "false"){
             }else{
                 var secondss = seconds;
             }
+            if(minutes < 10) {
+                var minutess = "0" + minutes;
+            }else{
+                var minutess = minutes;
+            }
 
             // Display the result in the element with id="demo"
-            document.getElementById("countdown").innerHTML = minutes + ":" + secondss;
+            document.getElementById("countdown").innerHTML = minutess + ":" + secondss;
 
             // If the count down is finished, write some text
             if (distance < 0) {
