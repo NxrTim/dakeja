@@ -39,7 +39,7 @@ if($settings_live['value'] == "false"){
             if(seconds < 10) {
                 var secondss = '0' + seconds;
             }else{
-                var secondss = seconds;
+                var secondss = '1' + seconds;
             }
 
             // Display the result in the element with id="demo"
