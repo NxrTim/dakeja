@@ -8,6 +8,7 @@ $db_user = 'dakeja_versteigerung';
 $db_password = '$62Ztx9o';
 $pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 $con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
+$url = "dakeja.fleischer-home.de";
 
 $dakeja_num = htmlspecialchars($_GET['num']);
 
@@ -24,9 +25,11 @@ if(isset($_GET['subscribe'])){
     $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
     $sub_rows = $pdo1->query($sql)->rowCount();
     if($sub_rows == 0){
-        $statement = $pdo->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
+        $statement = $pdo1->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
         $statement->execute(array($dakeja_num, $settings_product_id, time(), $_SERVER['REMOTE_ADDR']));
     }
+    header('location: https://'.$url.'/');
+    exit();
 }
 
 $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
