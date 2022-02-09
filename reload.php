@@ -53,12 +53,11 @@ if($settings_live['value'] == "false"){
             // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
+                document.getElementById("countdown").innerHTML = "Zeit abgelaufen!";
             }
         }, 1000);
     </script>
         <b><p id="countdown"><?php echo date('i:s', $timo) ?></p></b>
-        <b><p id="countdown2"><?php echo date('i:s', $timo) ?></p></b>
         <?php
     }else{
         ?>
