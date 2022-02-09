@@ -11,7 +11,7 @@ $con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 
 $sql = "SELECT * FROM `settings` WHERE setting='live'";
-$settings_live = $pdo1->query($sql)->rowCount();
+$settings_live = $pdo1->query($sql)->fetch();
 
 
 ?>
