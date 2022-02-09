@@ -16,6 +16,26 @@ $settings_live = $pdo1->query($sql)->fetch();
 $sql = "SELECT * FROM `settings` WHERE setting='start'";
 $settings_start = $pdo1->query($sql)->fetch();
 
+$sql = "SELECT * FROM `settings` WHERE setting='product_id'";
+$settings_product_id = $pdo1->query($sql)->fetch();
+
+if(isset($_GET['subscribe'])){
+    $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $_SESSION['dakeja_number'] . "'";
+    $sub_rows = $pdo1->query($sql)->rowCount();
+    if($sub_rows == 0){
+        $statement = $pdo->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
+        $statement->execute(array($_SESSION['dakeja_number'], $settings_product_id, time(), $_SERVER['REMOTE_ADDR']));
+    }
+}
+
+$sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $_SESSION['dakeja_number'] . "'";
+$sub_is = $pdo1->query($sql)->rowCount();
+if($sub_is == 0){
+    $sub = "false";
+}else{
+    $sub = "true";
+}
+
 ?>
 <p id="time">Letzte Aktualisierung: <?php echo date('H:i:s'); ?></p>
 <?php
@@ -69,6 +89,14 @@ if($settings_live['value'] == "false"){
     }
         ?>
     <p id="topic-5">Verteigerung aktiv!</p>
-    <p>Nehme jetzt teil und ersteige den Artikel!</p>
+    <?php
+    if($sub == "true"){
+        ?>
+        <p>Du nimmstr an der Versteigerung teil!</p>
+        <?php
+    }else{
+    ?>
+    <a href="?subscribe">Artikel ersteigern</a>
 <?php
+    }
 }
