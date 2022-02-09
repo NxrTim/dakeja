@@ -10,7 +10,7 @@ if(isset($_POST['dakeja_number'])){
     exit();
 }
 if(isset($_GET['subscribe'])){
-    $add = "?subscribe";
+    $add = "&subscribe";
 }
 if(!isset($_SESSION['dakeja_number'])){
 ?>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['dakeja_number'])){
         <script type="text/javascript">
             var updateDiv = function ()
             {
-                $('#target').load('reload.php<?php echo $add; ?>');
+                $('#target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?><?= $add; ?>');
             }
 
             var deinTimer = window.setInterval(updateDiv, 5000);

@@ -9,6 +9,7 @@ $db_password = '$62Ztx9o';
 $pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 $con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
+$dakeja_num = htmlspecialchars($_GET['num']);
 
 $sql = "SELECT * FROM `settings` WHERE setting='live'";
 $settings_live = $pdo1->query($sql)->fetch();
@@ -20,15 +21,15 @@ $sql = "SELECT * FROM `settings` WHERE setting='product_id'";
 $settings_product_id = $pdo1->query($sql)->fetch();
 
 if(isset($_GET['subscribe'])){
-    $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $_SESSION['dakeja_number'] . "'";
+    $sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
     $sub_rows = $pdo1->query($sql)->rowCount();
     if($sub_rows == 0){
         $statement = $pdo->prepare("INSERT INTO `subscribers`(`number_or_name`, `product_id`, `time`, `ip`) VALUES (?,?,?,?)");
-        $statement->execute(array($_SESSION['dakeja_number'], $settings_product_id, time(), $_SERVER['REMOTE_ADDR']));
+        $statement->execute(array($dakeja_num, $settings_product_id, time(), $_SERVER['REMOTE_ADDR']));
     }
 }
 
-$sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $_SESSION['dakeja_number'] . "'";
+$sql = "SELECT * FROM `subscribers` WHERE number_or_name = '" . $dakeja_num . "'";
 $sub_is = $pdo1->query($sql)->rowCount();
 if($sub_is == 0){
     $sub = "false";
