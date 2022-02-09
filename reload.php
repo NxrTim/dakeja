@@ -89,7 +89,7 @@ if($settings_live['value'] == "false"){
         <?php
     }else{
     ?>
-    <a href="/subscribe/">Artikel ersteigern</a>
+    <a id="do_sub" href="/subscribe/">Artikel ersteigern</a>
 <?php
     }
 }
