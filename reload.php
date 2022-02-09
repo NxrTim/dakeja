@@ -26,6 +26,8 @@ if($settings_live['value'] == "false"){
 <?php
 }else{
     if($settings_start['value'] > time()){
+        $timo = $settings_start['value'] - time();
+
     ?>
     <script>
         var countDownDate = new Date("Feb 9, 2022 16:59:25").getTime();
@@ -45,7 +47,7 @@ if($settings_live['value'] == "false"){
             }
         }, 1000);
     </script>
-        <b><p id="countdown"><?php echo date('i:s', $settings_start['value']) ?></p></b>
+        <b><p id="countdown"><?php echo date('i:s', $timo) ?></p></b>
         <?php
     }else{
         ?>
