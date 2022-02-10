@@ -27,6 +27,7 @@ $url = "dakeja.fleischer-home.de";
         ?>
         <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
         <head>
+            <meta name="viewport" content="width=device-width">
             <script type="text/javascript">
                 var updateDiv = function ()
                 {
