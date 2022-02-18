@@ -33,7 +33,7 @@ body{
 
 p{
     font-size: 30px;
-    transform:translateY(90px);
+    transform:translateY(-40px);
 }
 #time{
     font-size: 15px;
