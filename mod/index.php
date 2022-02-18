@@ -43,7 +43,7 @@ $settings_time = $pdo1->query($sql)->fetch();
     <div id="target">
         <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
     </div>
-    <form action="https://<?= $url; ?>/mod/new_round/" method="post"><br>
+    <form action="https://<?= $url; ?>/mod/new_round/index.php" method="post"><br>
         <span>Versteigerungszeit: </span>
         <input id="time" type="number" value="<?= $settings_time['value'] ?>" placeholder="60"><br>
         <span>Anzal Gewinner: </span>
