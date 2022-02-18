@@ -32,10 +32,14 @@ $url = "dakeja.fleischer-home.de";
             ?>
         <script>
             swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
+                title: "Achtung",
+                text: "Teilnahme ist erst ab 18 Jahren gestattet und ist ein Kaufvertrag.",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "Ablehnen",
+                    confirm: "OK"
+                    }
+                },
                 dangerMode: true,
             })
                 .then((willDelete) => {
