@@ -17,8 +17,8 @@ $url = "dakeja.fleischer-home.de";
                 alert('Teilnahme erst ab 18 Jahren. Teilnahme ist ein Kaufvertrag.');
             </script>
             <?php
-        header('location: https://'.$url.'/');
-        exit();
+       // header('location: https://'.$url.'/');
+       // exit();
     }
 
     if(!isset($_SESSION['dakeja_number'])){
