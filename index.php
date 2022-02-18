@@ -75,6 +75,7 @@ $url = "dakeja.fleischer-home.de";
                 }
 
                 var deinTimer = window.setInterval(updateDiv, 5000);
+                $('#target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?>');
             </script>
         </head>
         <body>
