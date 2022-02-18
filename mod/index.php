@@ -31,5 +31,12 @@ $url = "dakeja.fleischer-home.de";
     <div id="target">
         <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
     </div>
+    <form action="https://<?= $url; ?>/mod/new_round/" method="post"><br>
+        <span>Versteigerungszeit: </span>
+        <input type="number" value="" placeholder="60"><br>
+        <span>Anzal Gewinner: </span>
+        <input type="number" value="1" placeholder="1"><br><br>
+        <input type="submit" value="Neue Versteigerung starten">
+    </form>
     </body>
 
