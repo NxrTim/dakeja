@@ -1,4 +1,4 @@
-<?php
+<meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no"><?php
 error_reporting(E_ALL | E_STRICT);
 ini_set("display_errors", 1);
 date_default_timezone_set('Europe/Berlin');
