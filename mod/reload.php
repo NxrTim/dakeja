@@ -94,7 +94,7 @@ if($settings_live['value'] != "false"){
     $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
     $last_winner = $pdo1->query($sql)->fetch();
     ?>
-    <span id="vor_winner">Gewinner:</span><b><span id="winner"><?php echo $last_winner['number_or_name']; ?></span></b><br>
+    <span id="vor_winner" style="font-size: 50px">Gewinner:</span><b><span id="winner" style="font-size: 50px"><?php echo $last_winner['number_or_name']; ?></span></b><br>
     <form action="https://<?= $url; ?>/mod/new_round/" method="post">
         <span>Versteigerungszeit: </span>
         <input type="number" value="" placeholder="60"><br>
