@@ -82,7 +82,6 @@ $url = "dakeja.fleischer-home.de";
 
 
         <div id="target">
-            <p id="please_wait">Bitte warten der Inhalt wird geladen...</p>
         </div>
         </body>
     </div>
