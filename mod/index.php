@@ -16,6 +16,11 @@ $url = "dakeja.fleischer-home.de";
         </script>
     </head>
     <body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#target").load("reload.php");
+        });
+    </script>
 
 
     <div id="target">
