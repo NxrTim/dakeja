@@ -77,7 +77,7 @@ if($settings_live['value'] != "false"){
             foreach ($pdo1->query($sql) as $row) {
                 $subs[] = $row['id'];
             }
-            $i = $settings_winner;
+            $i = $settings_winner['value'];
             while ($i > 0 or $i = 0){
                 $i = $i - 1;
                 $max = $suber - 1;
