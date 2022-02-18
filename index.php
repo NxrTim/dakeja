@@ -78,8 +78,10 @@ $url = "dakeja.fleischer-home.de";
             </script>
         </head>
         <body>
-        <script>
-            document.getElementById('target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?>');
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#target").load("reload.php?num=<?= $_SESSION['dakeja_number'] ?>");
+            });
         </script>
 
         <div id="target">
