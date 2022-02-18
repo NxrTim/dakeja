@@ -7,19 +7,13 @@ $url = "dakeja.fleischer-home.de";
 ?>
 
 <link rel="stylesheet" href="https://<?= $url; ?>/style.css?<?= time(); ?>" type="text/css">
-<link rel="stylesheet" href="assets/alertifyjs/css/alertify.css">
-<link rel="stylesheet" href="assets/alertifyjs/css/themes/default.rtl.css">
-<script src="assets/alertifyjs/alertify.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <div id="wrapper">
     <div id="main">
     <?php
     if(isset($_POST['dakeja_number'])){
         $_SESSION['dakeja_number'] = htmlspecialchars($_POST['dakeja_number']);
-        ?>
-            <script>
-                alert('Teilnahme erst ab 18 Jahren. Teilnahme ist ein Kaufvertrag.');
-            </script>
-            <?php
+        $_SESSION['terms'] = "true";
         header('location: https://'.$url.'/');
         exit();
     }
@@ -33,6 +27,29 @@ $url = "dakeja.fleischer-home.de";
             </form>
     <?php
     }else{
+        if(isset($_SESSION['terms'])){
+            unset($_SESSION['terms']);
+            ?>
+        <script>
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        </script>
+        <?php
+        }
         ?>
         <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
         <head>
