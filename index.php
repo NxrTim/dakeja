@@ -36,9 +36,20 @@ $url = "dakeja.fleischer-home.de";
                 text: "Teilnahme ist erst ab 18 Jahren gestattet und ist ein Kaufvertrag.",
                 icon: "warning",
                 buttons: {
-                    cancel: "Ablehnen",
-                    confirm: "OK"
+                    cancel: {
+                        text: "Ablehnen",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
                     },
+                    confirm: {
+                        text: "Zustimmen",
+                        value: true,
+                        visible: true,
+                        className: "",
+                        closeModal: true
+                    }
                 },
                 dangerMode: true,
             })
