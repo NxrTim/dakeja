@@ -95,7 +95,7 @@ if($settings_live['value'] != "false"){
     $last_winner = $pdo1->query($sql)->fetch();
     ?>
     <span id="vor_winner" style="font-size: 50px">Gewinner:</span><b><span id="winner" style="font-size: 50px"><?php echo $last_winner['number_or_name']; ?></span></b><br>
-    <form action="https://<?= $url; ?>/mod/new_round/" method="post">
+    <form action="https://<?= $url; ?>/mod/new_round/" method="post"><br>
         <span>Versteigerungszeit: </span>
         <input type="number" value="" placeholder="60"><br>
         <span>Anzal Gewinner: </span>
