@@ -9,6 +9,18 @@
 <?php
 session_start();
 $url = "dakeja.fleischer-home.de";
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+date_default_timezone_set('Europe/Berlin');
+$db_host = 'localhost';
+$db_name = 'DaKeJa';
+$db_user = 'dakeja_versteigerung';
+$db_password = '$62Ztx9o';
+$pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
+$con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
+
+$sql = "SELECT * FROM `settings` WHERE setting='time'";
+$settings_time = $pdo1->query($sql)->fetch();
 ?>
     <head>
         <script type="text/javascript">
@@ -33,7 +45,7 @@ $url = "dakeja.fleischer-home.de";
     </div>
     <form action="https://<?= $url; ?>/mod/new_round/" method="post"><br>
         <span>Versteigerungszeit: </span>
-        <input type="number" value="" placeholder="60"><br>
+        <input type="number" value="<?= $settings_time ?>" placeholder="60"><br>
         <span>Anzal Gewinner: </span>
         <input type="number" value="1" placeholder="1"><br><br>
         <input type="submit" value="Neue Versteigerung starten">
