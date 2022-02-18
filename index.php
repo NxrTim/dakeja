@@ -58,23 +58,8 @@ $url = "dakeja.fleischer-home.de";
                 .then((willDelete) => {
                     if (!willDelete) {
                         swal("Leider ist für dich die Teilnahme nicht möglich.");
-                        var cookieList = (document.cookie) ? document.cookie.split(';') : [];
-
-                        var cookieValues = {};
-                        for (var i = 0, n = cookieList.length; i != n; ++i) {
-                            var cookie = cookieList[i];
-                            var f = cookie.indexOf('=');
-                            if (f >= 0) {
-                                var cookieName = cookie.substring(0, f);
-                                var cookieValue = cookie.substring(f + 1);
-
-                                console.log ("cookieName + " + cookieName + " cookieValue " + cookieValue);
-
-                                if (!cookieValues.hasOwnProperty(cookieName)) {
-                                    cookieValues[cookieName] = cookieValue;
-                                }
-                            }
-                        }
+                        var expires = "expires=Thu, 01-Jan-1970 00:00:01 GMT";
+                        document.cookie = "cookiesDirective=PHPSESSID;"+expires+"; path=/";
                         document.location="https://<?= $url ?>";
                     }
                 });
