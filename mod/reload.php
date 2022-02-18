@@ -19,6 +19,9 @@ $settings_start = $pdo1->query($sql)->fetch();
 
 $sql = "SELECT * FROM `settings` WHERE setting='product_id'";
 $settings_product_id = $pdo1->query($sql)->fetch();
+
+$sql = "SELECT * FROM `settings` WHERE setting='count_winner'";
+$settings_winner = $pdo1->query($sql)->fetch();
 ?>
     <p id="time">Letzte Aktualisierung: <?php echo date('H:i:s'); ?></p>
 <?php
@@ -74,14 +77,22 @@ if($settings_live['value'] != "false"){
             foreach ($pdo1->query($sql) as $row) {
                 $subs[] = $row['id'];
             }
-            $max = $suber - 1;
-            $randomnumber = rand(0, $max);
+            $i = $settings_winner;
+            while ($i > 0 or $i = 0){
+                $i = $i - 1;
+                $max = $suber - 1;
+                $randomnumber = rand(0, $max);
 
-            $sql = "SELECT * FROM `subscribers` WHERE id = '" . $subs[$randomnumber] . "'";
-            $winner_info = $pdo1->query($sql)->fetch();
+                $sql = "SELECT * FROM `subscribers` WHERE id = '" . $subs[$randomnumber] . "'";
+                $winner_info = $pdo1->query($sql)->fetch();
 
-            $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`) VALUES (?,?,?,?,?)");
-            $statement->execute(array(NULL, $settings_product_id['value'], NULL, $winner_info['number_or_name'], time()));
+                $statement = $pdo1->prepare("INSERT INTO `winners`(`product`, `product_id`, `price`, `number_or_name`, `time`, `winner_ip`) VALUES (?,?,?,?,?)");
+                $statement->execute(array(NULL, $settings_product_id['value'], NULL, $winner_info['number_or_name'], time(), $winner_info['ip']));
+
+                unset($subs[$randomnumber]);
+            }
+
+
 
             $sql = "DELETE FROM `subscribers`";
             $winnesssr_info = $pdo1->query($sql)->fetch();
@@ -91,10 +102,13 @@ if($settings_live['value'] != "false"){
         }
 
     }
-    $sql = "SELECT * FROM `winners` WHERE product_id = '" . $settings_product_id['value'] . "'";
-    $last_winner = $pdo1->query($sql)->fetch();
     ?>
-    <span id="vor_winner" style="font-size: 50px">Gewinner:</span><b><span id="winner" style="font-size: 50px"><?php echo $last_winner['number_or_name']; ?></span></b><br>
+    <span id="vor_winner" style="font-size: 50px">Gewinner:</span><b><span id="winner" style="font-size: 50px"><?php
+            $sql = "SELECT * FROM winners WHERE Product_id = '" . $settings_product_id['value'] . "'";
+            foreach ($pdo1->query($sql) as $row) {
+                echo $row['number_or_name'].", ";
+            }
+            ?></span></b><br>
 
     <?php
 }
