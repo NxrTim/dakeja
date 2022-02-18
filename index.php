@@ -75,7 +75,7 @@ $url = "dakeja.fleischer-home.de";
                                 }
                             }
                         }
-                        document.location="https://<?= $url ?>.de";
+                        document.location="https://<?= $url ?>";
                     }
                 });
         </script>
