@@ -22,7 +22,7 @@ $url = "dakeja.fleischer-home.de";
     ?>
             <form method="post">
                 <p id="topic-1">Deine Dakeja-Nummer oder Tikok-Name:</p>
-                <input type="text" name="dakeja_number" id="dakeja_number" placeholder="15" autofocus>
+                <input type="text" name="dakeja_number" id="dakeja_number" placeholder="15" autofocus required>
                 <input type="submit" id="button-1" value="loslegen">
             </form>
     <?php
@@ -52,14 +52,18 @@ $url = "dakeja.fleischer-home.de";
                     }
                 },
                 dangerMode: true,
+                closeOnClickOutside: false,
+                closeOnEsc: false,
             })
                 .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Poof! Your imaginary file has been deleted!", {
-                            icon: "success",
-                        });
-                    } else {
-                        swal("Your imaginary file is safe!");
+                    if (!willDelete) {
+                        swal("Leider ist für dich die Teilnahme nicht möglich.");
+                        <?php
+                        session_destroy();
+                        session_start();
+                        header('location: https://'.$url.'/');
+                        exit();
+                        ?>
                     }
                 });
         </script>
