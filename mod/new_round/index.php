@@ -11,24 +11,35 @@ $pdo1 = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 $con1 = new mysqli($db_host, $db_user, $db_password, $db_name);
 $url = "dakeja.fleischer-home.de";
 
-$timetoend = time()+60;
 
-$sql = "UPDATE `settings` SET `value` = '" . $timetoend . "' WHERE `settings`.`id` = 5;";
-$editSettings = $pdo1->query($sql)->fetch();
+if(isset($_POST['submiti'])) {
 
-getproid:
-$product_id = rand(100000, 999999);
-$sql = "SELECT * FROM `winners` WHERE product_id = '" . $product_id . "'";
-$genPro = $pdo1->query($sql)->rowCount();
-if($genPro != 0){
-    goto getproid;
+    $timetoend = time() + htmlspecialchars($_POST['time']);
+
+    $sql = "UPDATE `settings` SET `value` = '" . $timetoend . "' WHERE `settings`.`id` = 5;";
+    $editSettings = $pdo1->query($sql)->fetch();
+
+    $sql = "UPDATE `settings` SET `value` = '" . htmlspecialchars($_POST['time']) . "' WHERE `settings`.`id` = 8;";
+    $editSettings = $pdo1->query($sql)->fetch();
+
+    $sql = "UPDATE `settings` SET `value` = '" . htmlspecialchars($_POST['winners']) . "' WHERE `settings`.`id` = 7;";
+    $editSettings = $pdo1->query($sql)->fetch();
+
+    getproid:
+    $product_id = rand(100000, 999999);
+    $sql = "SELECT * FROM `winners` WHERE product_id = '" . $product_id . "'";
+    $genPro = $pdo1->query($sql)->rowCount();
+    if ($genPro != 0) {
+        goto getproid;
+    }
+
+    $sql = "UPDATE `settings` SET `value` = '" . $product_id . "' WHERE `settings`.`id` = 3;";
+    $editSettings = $pdo1->query($sql)->fetch();
+
+    $sql = "UPDATE `settings` SET `value` = 'true' WHERE `settings`.`id` = 1;";
+    $editSettings = $pdo1->query($sql)->fetch();
+
+    header('location: https://' . $url . '/mod/');
+    exit();
+
 }
-
-$sql = "UPDATE `settings` SET `value` = '" . $product_id . "' WHERE `settings`.`id` = 3;";
-$editSettings = $pdo1->query($sql)->fetch();
-
-$sql = "UPDATE `settings` SET `value` = 'true' WHERE `settings`.`id` = 1;";
-$editSettings = $pdo1->query($sql)->fetch();
-
-header('location: https://'.$url.'/mod/');
-exit();
