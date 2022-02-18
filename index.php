@@ -5,12 +5,18 @@
 session_start();
 $url = "dakeja.fleischer-home.de";
 ?>
+
 <link rel="stylesheet" href="https://<?= $url; ?>/style.css?<?= time(); ?>" type="text/css">
 <div id="wrapper">
     <div id="main">
     <?php
     if(isset($_POST['dakeja_number'])){
         $_SESSION['dakeja_number'] = htmlspecialchars($_POST['dakeja_number']);
+        ?>
+            <script>
+                alert('Teilnahme erst ab 18 Jahren. Teilnahme ist ein Kaufvertrag.');
+            </script>
+            <?php
         header('location: https://'.$url.'/');
         exit();
     }
