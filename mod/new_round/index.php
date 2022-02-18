@@ -42,4 +42,6 @@ if(isset($_POST['submiti'])) {
     header('location: https://' . $url . '/mod/');
     exit();
 
+}else{
+    echo "Load Error";
 }
