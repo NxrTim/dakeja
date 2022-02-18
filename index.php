@@ -67,7 +67,6 @@ $url = "dakeja.fleischer-home.de";
         ?>
         <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
         <head>
-            <meta name="viewport" content="width=device-width">
             <script type="text/javascript">
                 var updateDiv = function ()
                 {
@@ -75,11 +74,11 @@ $url = "dakeja.fleischer-home.de";
                 }
 
                 var deinTimer = window.setInterval(updateDiv, 5000);
-                $('#target').load('reload.php?num=<?= $_SESSION['dakeja_number'] ?>');
+
             </script>
         </head>
         <body>
-
+<
 
         <div id="target">
         </div>
