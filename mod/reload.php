@@ -99,7 +99,7 @@ if($settings_live['value'] != "false"){
         <span>Versteigerungszeit: </span>
         <input type="number" value="" placeholder="60"><br>
         <span>Anzal Gewinner: </span>
-        <input type="number" value="" placeholder="1"><br>
+        <input type="number" value="" placeholder="1"><br><br>
         <input type="submit" value="Neue Versteigerung starten">
     </form>
     <?php
