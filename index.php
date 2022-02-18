@@ -65,7 +65,7 @@ $url = "dakeja.fleischer-home.de";
         <?php
         }
         ?>
-        <p id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></p><br>
+        <span id="topic-2">Deine Dakeja-Nummer/ TikTokName: <b><?= $_SESSION['dakeja_number'] ?></b></span><br>
         <head>
             <meta name="viewport" content="width=device-width">
             <script type="text/javascript">
