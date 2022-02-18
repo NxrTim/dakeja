@@ -33,14 +33,15 @@ body{
 
 p{
     font-size: 30px;
+    transform:translateY(90px);
 }
 #time{
     font-size: 15px;
-    transform:translate(190px,-90px);
+    transform:translate(190px,-90px) !important;
 }
 #topic-2{
     font-size: 15px;
-    transform:translate(-155px, -25px);
+    transform:translate(-155px, -25px) !important;
     text-align:left;
 }
 #countdown{

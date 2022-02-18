@@ -30,7 +30,7 @@ if($sub_is == 0){
 }
 
 ?>
-<span id="time">Letzte Aktualisierung: <?php echo date('H:i:s'); ?></span>
+<p id="time">Letzte Aktualisierung: <?php echo date('H:i:s'); ?></p>
 <?php
 if($settings_live['value'] == "false"){
     ?>
