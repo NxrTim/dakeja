@@ -45,10 +45,10 @@ $settings_time = $pdo1->query($sql)->fetch();
     </div>
     <form action="https://<?= $url; ?>/mod/new_round/index.php" method="post"><br>
         <span>Versteigerungszeit: </span>
-        <input id="time" type="number" value="<?= $settings_time['value'] ?>" placeholder="60"><br>
+        <input name="time" type="number" value="<?= $settings_time['value'] ?>" placeholder="60"><br>
         <span>Anzal Gewinner: </span>
-        <input id="winners" type="number" value="1" placeholder="1"><br><br>
-        <input id="submiti" type="submit" value="Neue Versteigerung starten">
+        <input name="winners" type="number" value="1" placeholder="1"><br><br>
+        <input name="submiti" type="submit" value="Neue Versteigerung starten">
     </form>
     </body>
 
