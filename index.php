@@ -59,7 +59,7 @@ $url = "dakeja.fleischer-home.de";
                     if (!willDelete) {
                         swal("Leider ist für dich die Teilnahme nicht möglich.");
                         var expires = "expires=Thu, 01-Jan-1970 00:00:01 GMT";
-                        document.cookie = "cookiesDirective=PHPSESSID;"+expires+"; path=/";
+                        document.cookie = "cookiesDirective=;"+expires+"; path=/";
                         document.location="https://<?= $url ?>";
                     }
                 });
